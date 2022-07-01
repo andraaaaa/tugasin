@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <select class="form-select" id="pilihpegawai" aria-label="Default select example" onchange="getDataPegawai()">
+            <option selected>-- Pilih Pegawai --</option>
+        <script>
+            $(document).ready(function(){
+              $.get("/static/json/pegawai.json", function(data) {
+  
+                  data.forEach(dt => {
+                    $("#pilihpegawai").append(
+                    "<option>"+ dt.nama + "</option>"
+                    );
+                  });
+              });
+            });
+          </script>
+          </select>
+          <button id="klik">Search!</button>
+         
+         <p id="result"></p>
+         
+    </body>
+
+    <script>
+            
+            
+  // will return undefined if not found; you could return a default instead
+        var res;
+        var nip;
+        var r = "-";
+        const ts = new Date();
+        console.log(ts);
+
+        function setNIP(nip){
+            this.nip = nip;
+        }
+
+        function getNIP(){
+            return nip;
+        }
+        
+        function getDataPegawai(peg){
+            var peg = document.getElementById("pilihpegawai").value;
+            var r = "0";
+            $.getJSON("/static/json/pegawai.json", function(data){
+                for(var i=0; i < data.length; i++){
+                    if(data[i].nama == peg){
+                        setNIP(data[i].nip);
+                        document.getElementById("result").innerHTML = getNIP();
+                        
+                    } else { continue; }
+                
+                }
+                
+                
+            });
+        }
+        console.log(r);
+    
+    </script>
+</html>

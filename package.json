@@ -1,0 +1,31 @@
+{
+  "name": "tugasin",
+  "version": "1.0.0",
+  "description": "tugasin",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "tugas"
+  ],
+  "author": "andraaaaa",
+  "license": "MIT",
+  "dependencies": {
+    "blob": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "cross-blob": "^2.0.0",
+    "docx": "^6.0.3",
+    "docxtemplater": "^3.21.2",
+    "express": "^4.17.1",
+    "file-saver": "^2.0.5",
+    "fs": "0.0.1-security",
+    "moment": "^2.29.1",
+    "node-blob": "0.0.2",
+    "pizzip": "^3.0.6",
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

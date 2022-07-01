@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>Tugasin! · Pengaturan</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/dist/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+    <script src="/static/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="/static/templates/dashboard/dashboard.css" type="text/css" rel="stylesheet">
+		<style type="text/css">
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+			.contain {
+				width: 800px;
+				margin: 0 auto;
+			}
+			h1 {
+				margin: 40px 0 20px 0;
+			}
+			h2 {
+				font-size: 1.5em;
+				padding-bottom: 3px;
+				border-bottom: 1px solid #DDD;
+				margin-top: 50px;
+				margin-bottom: 25px;
+			}
+			table th:first-child {
+				width: 150px;
+			}
+      
+      button:hover {
+        background: rgb(71, 69, 69);
+        color:rgb(236, 236, 236);
+      }
+
+      .popover-body {
+        color: #00000000 !important
+      }
+		</style>
+  </head>
+  
+  <body>
+      <script>
+        $(function(){
+            $('[data-toggle="popover"]').popover({
+              container: 'body'
+            })
+        });
+      </script>
+
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Tugasin!</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="#">Sign out</a>
+    </li>
+  </ul>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <div class="row g-3">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+              <center><a href="/addmitra"><button class="w-100 btn btn-primary" href="/generate" style="float:right;">Buat Surat Tugas Baru</button></a></center>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pegawai">
+              <span data-feather="users"></span>
+              Pegawai
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/rekap">
+              <span data-feather="layers"></span>
+              Rekapitulasi
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <span data-feather="settings"></span>
+              Pengaturan
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h1">Pengaturan Surat</h1>
+      </div>
+      <h3 class="h3">Pengaturan Surat Tugas</h3>
+      <div class="alert alert-danger" role="alert" style="width:700px;">
+        <p><b>Perhatian! Ini adalah pengaturan default untuk semua surat.</b></p>
+        <p>
+          Harap ubah pengaturan ini ketika ada perubahan Kepala BPS ataupun PPK (Pejabat Pembuat Komitmen) yang menjabat.
+          Tindakan ini akan mengubah setelan nama PPK dan Kepala BPS secara default.
+        </p>
+      </div>
+      <div class="formspace" style="width: 500px;">
+      <form action="/ubah-settings" method="POST">
+        <div class="form-group row">
+          <label for="kepalabps" class="col-sm-4 col-form-label">Kepala BPS</label>
+          <div class="col-sm-8">
+            <input type="text" name="kepalabps" class="form-control" id="kepalabps">
+          </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+          <label for="nipkepala" class="col-sm-4 col-form-label">NIP Kepala</label>
+          <div class="col-sm-8">
+            <input type="text" name="nipkepala" class="form-control" id="nipkepala">
+          </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+          <label for="ppk" class="col-sm-4 col-form-label">Nama PPK</label>
+          <div class="col-sm-8">
+            <input type="text" name="ppk" class="form-control" id="ppk">
+          </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+          <label for="nipppk" class="col-sm-4 col-form-label">NIP PPK</label>
+          <div class="col-sm-8">
+            <input type="text" name="nipppk" class="form-control" id="nipppk">
+          </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+          <label for="initsurat" class="col-sm-4 col-form-label">Nomor mulai untuk Surat Tugas</label>
+          <div class="col-sm-8">
+            <input type="text" name="initsurat" class="form-control" id="initsurat" style="width: 30%;">
+            <small>
+              <p>Nomor Mulai Surat Tugas adalah nomor yang perlu diatur pertama kali ketika menggunakan sistem ini.
+                Nomor ini juga perlu diatur jika telah melakukan reset data surat.
+              </p>
+            </small>
+          </div>
+        </div>
+        <div class="space" style="padding-bottom: 30px;"></div>
+        <button class="w-100 btn btn-primary" type="submit">Simpan Pengaturan</button>
+      </form>
+    </div>
+    <hr class="my-4">
+    <h3 class="h3">Reset Data Surat Tugas   <span class="highlightme" style="background-color: red; color: white; font-size: 14px;">   COMING SOON</span></h3>
+    <div class="alert alert-danger" role="alert" style="width:700px;">
+      <p><b>Tindakan ini akan menghapus SEMUA data Surat Tugas yang telah dibuat.</b>
+        Pastikan Anda sudah melakukan pencadangan <i>(backup)</i> data atau mencatat di buku surat tugas dalam/luar daerah.</p>
+      <p>Setelah dilakukan reset, nomor awal Surat Tugas akan kembali mengikuti Nomor Mulai yang sudah ditetapkan.</p>
+        <button class="w-50 btn btn-danger" type="button" style="align-content: flex-end;">Reset Surat</button>
+    </div>
+    <hr class="my-4">
+    <h3>Backup/Restore Data   <span class="highlightme" style="background-color: red; color: white; font-size: 14px;">   COMING SOON   </span></h3>
+    <div class="alert alert-primary" role="alert" style="width:700px;">
+      <p>Ini adalah tindakan opsional. Disarankan lakukan backup apabila sudah melalui pergantian tahun. Output data yang dibackup meliputi data Surat Tugas (JSON) dan Surat Tugas yang telah dibuat (DOCX).</p>
+        <button class="w-50 btn btn-primary" type="button">Backup Data Surat</button>
+        <br><br>
+        <p>Apabila ada masalah dalam proses pemuatan Surat Tugas yang tidak sempurna, silakan lakukan restore data surat yang sudah dibackup.
+          Format file <b>HARUS</b> berbentuk JSON.
+        </p>
+        <form>
+          <div class="row g-5">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <button class="w-50 btn btn-primary" type="submit">Restore</button>    
+            </div>
+          </div>
+        </form>
+        
+    </div>
+    </main>
+  </div>
+</div>
+
+
+    
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+      <script src="/static/templates/dashboard/dashboard.js"></script>
+      <script>
+        $.get("/static/json/suratconfig.json", function(data) {
+          
+          document.getElementById("kepalabps").setAttribute("value", data.kepalabps);
+          document.getElementById("nipkepala").setAttribute("value", data.nip_kepala);
+          document.getElementById("ppk").setAttribute("value", data.ppk);
+          document.getElementById("nipppk").setAttribute("value", data.nip_ppk);
+          document.getElementById("initsurat").setAttribute("value", data.init_surat);
+            });
+      </script>
+      
+  </body>
+</html>
